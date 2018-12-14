@@ -1,9 +1,22 @@
 <template>
   <div id="app">
-    <h1 class="text-red">Hello World</h1>
-    <router-view/>
+    <s-col yAlign="center" class="w-screen h-screen">
+      <s-button>Login</s-button>
+    </s-col>
   </div>
 </template>
+
+<script>
+  const App = {
+    methods: {
+      log() {
+        console.log('clicked');
+      }
+    }
+  };
+
+  export default App;
+</script>
 
 <style lang="postcss">
 @tailwind preflight;
