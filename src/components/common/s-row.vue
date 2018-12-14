@@ -1,6 +1,6 @@
 <template>
   <div class="row"
-    :class="[growClass, xAlign, yAlign]"
+    :class="[growClass, xAlignClass, yAlignClass]"
     v-bind="$attrs"
     v-on="$listeners">
     <slot></slot>

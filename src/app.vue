@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <s-col yAlign="center" class="w-screen h-screen">
-      <s-button>Login</s-button>
-    </s-col>
+    <s-row class="w-screen h-screen" xAlign="center">
+      <s-col yAlign="center">
+        <s-button class="w-48">Login</s-button>
+      </s-col>
+    </s-row>
   </div>
 </template>
 

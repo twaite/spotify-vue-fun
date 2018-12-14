@@ -14,7 +14,7 @@
 
 <style lang="postcss" scoped>
 .btn {
-  @apply rounded p-2;
+  @apply rounded rounded-full px-4 py-2;
 }
 
 .primary {
