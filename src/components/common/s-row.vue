@@ -37,7 +37,7 @@
         if (this.xAlign) return `justify-${this.xAlign}`;
       },
       yAlignClass() {
-        if (this.yAlign) return `content-${this.yAlign}`;
+        if (this.yAlign) return `items-${this.yAlign}`;
       }
     }
   };

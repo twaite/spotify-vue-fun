@@ -34,7 +34,7 @@
         if (this.grow) return 'flex-grow';
       },
       xAlignClass() {
-        if (this.xAlign) return `content-${this.xAlign}`;
+        if (this.xAlign) return `items-${this.xAlign}`;
       },
       yAlignClass() {
         if (this.yAlign) return `justify-${this.yAlign}`;
