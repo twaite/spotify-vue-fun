@@ -5,7 +5,8 @@ module.exports = {
   },
   'extends': [
     'plugin:vue/essential',
-    '@vue/standard'
+    '@vue/standard',
+    '@dialexa/eslint-config-dialexa/es6'
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -14,4 +15,4 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint'
   }
-}
+};

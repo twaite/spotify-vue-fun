@@ -577,6 +577,12 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@dialexa/eslint-config-dialexa@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@dialexa/eslint-config-dialexa/-/eslint-config-dialexa-5.3.0.tgz#28c06fa4994e308cf9771bc0e6423b5a00c01c52"
+  dependencies:
+    lodash.merge "~4.6.0"
+
 "@intervolga/optimize-cssnano-plugin@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@intervolga/optimize-cssnano-plugin/-/optimize-cssnano-plugin-1.0.6.tgz#be7c7846128b88f6a9b1d1261a0ad06eb5c0fdf8"
@@ -4066,6 +4072,10 @@ lodash.mapvalues@^4.6.0:
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
+
+lodash.merge@~4.6.0:
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
 
 lodash.transform@^4.6.0:
   version "4.6.0"
