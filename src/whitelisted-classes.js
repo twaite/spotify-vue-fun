@@ -1,5 +1,13 @@
 const whitelistPatterns = [
+  /items$/,
+  /justify$/
+];
+
+const whitelistedPatternsChilden = [
 
 ];
 
-export default whitelistPatterns;
+module.exports = {
+  whitelistPatterns,
+  whitelistedPatternsChilden
+}
