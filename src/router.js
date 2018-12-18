@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import LoginPage from '@/pages/login-page';
+import HomePage from '@/pages/home-page';
+import { nextTick } from 'q';
 
 Vue.use(Router);
 
@@ -8,38 +10,52 @@ const router = new Router({
   mode: 'history',
   routes: [
     {
+      path: '/',
+      name: 'home',
+      component: HomePage
+    },
+    {
       path: '/login',
       name: 'login',
       component: LoginPage
-    },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    // }
+    }
   ]
 });
 
-// function getHashParams() {
+function parseParams(str) {
+  var pieces = str.split("&"), data = {}, i, parts;
+  // process each query pair
+  for (i = 0; i < pieces.length; i++) {
+      parts = pieces[i].split("=");
+      if (parts.length < 2) {
+          parts.push("");
+      }
+      data[decodeURIComponent(parts[0])] = decodeURIComponent(parts[1]);
+  }
+  return data;
+}
 
-//   var hashParams = {};
-//   var e,
-//       a = /\+/g,  // Regex for replacing addition symbol with a space
-//       r = /([^&;=]+)=?([^&;]*)/g,
-//       d = function (s) { return decodeURIComponent(s.replace(a, " ")); },
-//       q = window.location.hash.substring(1);
+router.beforeEach((to, from, next) => {
+  const hashParams = parseParams(to.hash.replace(/^#/g, ''));
+  const storage = window.localStorage;
 
-//   while (e = r.exec(q))
-//     hashParams[d(e[1])] = d(e[2]);
+  if (hashParams.access_token) {
+    const expired = new Date();
+    expired.setSeconds(expired.getSeconds() + hashParams.expires_in);
+    storage.setItem('token', hashParams.access_token);
+    storage.setItem('expiresAt', expired);
+    storage.setItem('tokenType', hashParams.token_type);
+  }
 
-//   return hashParams;
-// }
+  const loggedIn = storage.getItem('token')
+    && new Date(storage.getItem('expiresAt')) > new Date();
 
-// router.beforeEach((to) => {
-  
-// });
+  if (loggedIn || to.name === 'login') {
+    next();
+  } else {
+    storage.clear();
+    next('/login');
+  }
+});
 
 export default router;
