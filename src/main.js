@@ -17,10 +17,6 @@ Vue.component('s-button', SButton);
 Vue.component('s-row', SRow);
 Vue.component('s-col', SCol);
 
-const tokenType = window.localStorage.getItem('tokenType');
-const token = window.localStorage.getItem('token');
-axios.defaults.headers.common['Authorization'] = `${tokenType} ${token}`;
-
 new Vue({
   router,
   store,
