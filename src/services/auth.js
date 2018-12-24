@@ -17,9 +17,9 @@ function parseParams(str) {
 }
 
 export function redirectForLogin() {
-  const authUrl = 'https://accounts.spotify.com/authorize';
-  const clientId = 'dbc7aa206bf44549a9ab788d013f4682';
-  const redirectUri = encodeURIComponent('http://localhost:8080/auth');
+  const authUrl = process.env.VUE_APP_AUTH_URL;
+  const clientId = process.env.VUE_APP_CLIENT_ID;
+  const redirectUri = encodeURIComponent(process.env.VUE_APP_REDIRECT_URL);
   const url = `${authUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token`;
   window.location = url;
 }

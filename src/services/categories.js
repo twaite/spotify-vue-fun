@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export function getCategories() {
-  return axios.get('https://api.spotify.com/v1/browse/categories');
+  return axios.get(`${process.env.VUE_APP_API}/browse/categories`);
 }
